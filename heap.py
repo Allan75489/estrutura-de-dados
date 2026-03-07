@@ -11,47 +11,31 @@ class MinHeap:
         """Inicializa uma heap vazia"""
         self.heap = []
 
-    # ==============================
-    # Índice do pai
-    # ==============================
     def pai(self, i):
         return (i - 1) // 2
 
-    # ==============================
-    # Filho esquerdo
-    # ==============================
     def filho_esquerdo(self, i):
         return 2 * i + 1
 
-    # ==============================
-    # Filho direito
-    # ==============================
+   
     def filho_direito(self, i):
         return 2 * i + 2
 
-    # ==============================
-    # Verifica se está vazia
-    # ==============================
+
     def esta_vazia(self):
         return len(self.heap) == 0
 
-    # ==============================
-    # Retorna tamanho da heap
-    # ==============================
+  
     def tamanho(self):
         return len(self.heap)
 
-    # ==============================
-    # Ver menor elemento (sem remover)
-    # ==============================
+   
     def peek(self):
         if self.esta_vazia():
             return None
         return self.heap[0]
 
-    # ==============================
-    # Inserir elemento
-    # ==============================
+  
     def inserir(self, valor):
         self.heap.append(valor)
 
@@ -62,9 +46,7 @@ class MinHeap:
             self.heap[i], self.heap[self.pai(i)] = self.heap[self.pai(i)], self.heap[i]
             i = self.pai(i)
 
-    # ==============================
-    # Heapify
-    # ==============================
+ 
     def heapify(self, i):
         menor = i
         esq = self.filho_esquerdo(i)
@@ -80,9 +62,7 @@ class MinHeap:
             self.heap[i], self.heap[menor] = self.heap[menor], self.heap[i]
             self.heapify(menor)
 
-    # ==============================
-    # Remover menor elemento
-    # ==============================
+
     def remover_min(self):
 
         if self.esta_vazia():
@@ -99,9 +79,6 @@ class MinHeap:
 
         return raiz
 
-    # ==============================
-    # Mostrar heap
-    # ==============================
     def mostrar(self):
         print("Heap:", self.heap)
 
